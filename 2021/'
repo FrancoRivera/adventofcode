@@ -1,4 +1,9 @@
-; Finished: 11:41
+; Finished: 26-nov-2020 (started a year before lmao)
+
+(load "~/quicklisp/setup.lisp")
+
+(ql:quickload "cl-ppcre")
+
 (defun get-file (filename)
   "Get the content of the file as integers"
   (with-open-file (stream filename)
@@ -58,22 +63,20 @@
   (let (
 		  (lines '0)
 		  (count '0)
+		  (most_common_bit '0)
 		  (iteration '0)
-		  (inputs (get-file "3-input.txt"))
-		  (oxygen '0)
-		  (co2 '0)
-		  (columns 12)
+		  (conditions ())
+		  (inputs (get-file "3-input-test.txt"))
 		  )
-	 ; get oxygen
-	 (loop while (< iteration columns)
+	 (loop while (< iteration 5)
 			 do
 				(setq count 0)
 				(setq lines 0)
-				(dolist (line inputs)
+				(dolist (line (get-file "3-input-test.txt"))
 					(setq count (+ count (digit-char-p (char line iteration))))
 					(setq lines (+ lines 1))
 				)
-				 (if (>= count  (/ lines 2))
+				 (if (> count  (/ lines 2))
 					(setq count 1)
 					(setq count 0)
 				)
@@ -82,42 +85,6 @@
 						collect line
 				))
 			(setq iteration (+ 1 iteration))
-		)
-	 (setq oxygen (car inputs))
-	 ; reset variables
-	 (setq inputs (get-file "3-input.txt"))
-	 (setq iteration 0)
-
-	 ; get c02
-	 (loop while (and (< iteration columns) (> (length inputs) 1))
-			 do
-				(setq count 0)
-				(setq lines 0)
-				(dolist (line inputs)
-					(setq count (+ count (digit-char-p (char line iteration))))
-					(setq lines (+ lines 1))
-				)
-				 (if (>= count  (/ lines 2))
-					(setq count 1)
-					(setq count 0)
-				)
-				(setq inputs (loop for line in inputs
-				  		when (not (= count (digit-char-p (char line iteration))))
-						collect line
-				))
-			(setq iteration (+ 1 iteration))
-		)
-	 (setq co2 (car inputs))
-	(let ((oxy 0) (co '0) (it '0) (power '0))
-			(loop while (< it columns)
-					do
-					(setq power (- columns 1 it))
-					(setq oxy (+ oxy (binary-to-decimal (digit-char-p (char oxygen it)) power)))
-					(setq co (+ co (binary-to-decimal (digit-char-p (char co2 it)) power)))
-					(setq it (+ 1 it))
-			)
-			(format t "~D ~D ~%" oxy co)
-			(format t "~D ~%" (* oxy co))
 		)
 	 )
 	 )
