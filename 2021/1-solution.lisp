@@ -9,6 +9,14 @@
 ;' Baggers
 ;https://www.youtube.com/watch?v=ocye0h5slt4
 
+(defun diff (my-list)
+  (let (last '99999)
+  (loop for x in my-list
+		  collect (- last x)
+  )
+)
+  )
+
 (defun get-file (filename)
   "Get the content of the file as integers"
   (with-open-file (stream filename)
@@ -71,9 +79,8 @@
 		)
   )
 
-dolist (value iterable)
-
 ; run both solutions
 (first-part-solution)
 (second-part-solution)
 
+(print (diff (list 1 2 3)))
