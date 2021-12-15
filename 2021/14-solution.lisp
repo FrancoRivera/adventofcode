@@ -221,6 +221,9 @@
         (result (do-n-steps 40))
         )
       (parse-rules)
+      (loop for key being the hash-keys of letters
+        using (hash-value value)
+        do (format t "~S: ~S~%" key value))
       (let* ((result
                 (loop for key being the hash-keys of letters
                   using (hash-value value)
@@ -228,13 +231,10 @@
               )
               (min (minimum result))
               (max (maximum result))
-              (sub (- (/ max 2) (/ max (+ 1 min) 2)))
+              (sub (- (/ (+ max 1)  2) (/ min 2)))
               )
             (format t "RESULT ~D ~% MAX ~D ~% MIN ~D ~% SUB: ~D ~%" result max min sub)
 
-        (loop for key being the hash-keys of letters
-          using (hash-value value)
-          do (format t "~S: ~S~%" key value))
         )
       ))
 
