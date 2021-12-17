@@ -1,4 +1,4 @@
-; DepI
+; Dep
 (load "~/quicklisp/setup.lisp")
 (ql:quickload "cl-ppcre")
 
@@ -20,7 +20,7 @@
 
 (defun parse-file ()
 	(let ((row '0) (col '0))
-	 (loop for line in (get-file "15-input-test.txt")
+	 (loop for line in (get-file "15-input.txt")
 		do
 		(loop for digit in (ppcre:split "" line)
 			do
