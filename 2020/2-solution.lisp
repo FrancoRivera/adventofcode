@@ -82,12 +82,13 @@
 ; https://groups.google.com/g/comp.lang.lisp/c/H3KqqtkvjQo/m/5qr8bZn0uBkJ
 (defmacro xor (v1 v2)
 	`(not (eq (not ,v1) (not ,v2))))
-	(defun check-second-policy (first second char string)
-	  (xor
-		 (string= char (get-letter-in-position first string))
-		 (string= char (get-letter-in-position second string))
-	  )
-)
+
+(defun check-second-policy (first second char string)
+  (xor
+   (string= char (get-letter-in-position first string))
+   (string= char (get-letter-in-position second string))
+   )
+  )
 
 (defun second-part-solution ()
 (let (counter '0)
