@@ -1,34 +1,57 @@
+* Advent of Code 2023 solutions
+notes:
 We are using c+11
 g++ 2-solution.cpp -std=c++11 && ./a.out                                                                                                                   +
 
-Day 1:
-===
+** Day 1:
+Total ET: 85 min
 Part 1: 45min
 Part 2: 40min
 
-
-Day 2:
-===
+** Day 2:
+Total ET: 95min
 Part 1: 12 entender, 88min desarollo
 Part 2: 7 min
 
 to run day 2:
 g++ 2-parse.cpp 2-solution.cpp -std=c++11 && ./a.out 
 
-Day 3:
-===
-Part 1: 
+** Day 3:
+Total ET: 80min
+*** Part 1: 
 Start: 15:45
 End: 16:58
+Duration: 73min
 
 To run:
-g++ 3-solution.cpp -std=c++11 && ./a.out
+#+BEGIN_SRC shell
+g++ 3-utils.cpp 3-solution.cpp -std=c++11 && ./a.out
+#+END_SRC
 
-Part 2: 
+*** Part 2: 
 ---
 Start: 16:58
-End:
+End: 17:05
 
 To run:
-g++ 3-solution.cpp -std=c++11 && ./a.out
+#+BEGIN_SRC shell
+g++ 3-utils.cpp 3-solution-pt2.cpp -std=c++11 && ./a.out
+#+END_SRC
 
+** Day Template:
+Total ET: TBD
+*** Part 1:
+Start: 
+End:
+Duration:
+Run command:
+#+BEGIN_SRC shell
+#+END_SRC
+
+*** Part 2:
+Start: 
+End:
+Duration:
+Run command:
+#+BEGIN_SRC shell
+#+END_SRC

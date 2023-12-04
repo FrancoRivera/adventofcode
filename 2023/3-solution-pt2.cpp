@@ -44,15 +44,18 @@ int main(){
       }
       else
       {
+        if (character != '*'){
+          // if its not a star just keep on going
+          continue;
+        }
         // not found a.k.a. its a symbol
         // look for all the numbers in the array, get their sum
+        auto foundNumbers = vector<int>();
         for (int k = -1; k <= 1; k++){
           for (int l = -1; l <= 1; l++)
           {
             auto row = i+k;
             auto col = j+l;
-            // cout << k << ", " << l << "\t\t";
-            // cout << row << ", " << col << endl;
             // see if it is out of bounds
             if (row >= 0 && row < char_mat.size() && col >= 0 && col < char_mat[row].size()){
               if (visited[row][col] == 1) continue;
@@ -65,11 +68,14 @@ int main(){
                 vector<int> number = {numb};
 
                 auto numb = findNumberStartingAtPos(char_mat[row], col, &visited[row]);
-                sum += numb;
-                // it is a number explore left and right
+                foundNumbers.push_back(numb);
               }
             }
           }
+        }
+        if (foundNumbers.size() == 2){
+          // if there are exactly 2 values found for the star, then multiply them and add to sum
+          sum += foundNumbers[0] * foundNumbers[1];
         }
       }
     }
@@ -77,6 +83,6 @@ int main(){
 
   // search for all the adjacent numbers
   // explore all not visited files left and right to the numbers
-  // test output = 4361
-  std::cout << "Sum of part numbers: " << sum << endl;
+  // test output = 467835
+  std::cout << "Sum of product gear ratios: " << sum << endl;
 }
