@@ -38,6 +38,27 @@ To run:
 g++ 3-utils.cpp 3-solution-pt2.cpp -std=c++11 && ./a.out
 #+END_SRC
 
+
+** Day 4:
+Total ET: TBD
+*** Part 1:
+Start: 17:13
+End: 17:44
+Duration: 31min
+Run command:
+#+BEGIN_SRC shell
+g++ 4-solution.cpp -std=c++11 && ./a.out 
+#+END_SRC
+
+*** Part 2:
+Start: 17:53
+End:
+Duration:
+Run command:
+#+BEGIN_SRC shell
+#+END_SRC
+
+
 ** Day Template:
 Total ET: TBD
 *** Part 1:
