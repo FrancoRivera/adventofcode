@@ -1,3 +1,6 @@
+We are using c+11
+g++ 2-solution.cpp -std=c++11 && ./a.out                                                                                                                   +
+
 Day 1:
 ===
 Part 1: 45min
@@ -12,6 +15,20 @@ Part 2: 7 min
 to run day 2:
 g++ 2-parse.cpp 2-solution.cpp -std=c++11 && ./a.out 
 
+Day 3:
+===
+Part 1: 
+Start: 15:45
+End: 16:58
 
-We are using c+11
-g++ 2-solution.cpp -std=c++11 && ./a.out                                                                                                                   +
+To run:
+g++ 3-solution.cpp -std=c++11 && ./a.out
+
+Part 2: 
+---
+Start: 16:58
+End:
+
+To run:
+g++ 3-solution.cpp -std=c++11 && ./a.out
+
