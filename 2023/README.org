@@ -6,5 +6,12 @@ Part 2: 40min
 
 Day 2:
 ===
-Part 1: 12min (so far)
-Part 2: 
+Part 1: 12 entender, 88min desarollo
+Part 2: 7 min
+
+to run day 2:
+g++ 2-parse.cpp 2-solution.cpp -std=c++11 && ./a.out 
+
+
+We are using c+11
+g++ 2-solution.cpp -std=c++11 && ./a.out                                                                                                                   +
