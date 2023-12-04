@@ -40,7 +40,7 @@ g++ 3-utils.cpp 3-solution-pt2.cpp -std=c++11 && ./a.out
 
 
 ** Day 4:
-Total ET: TBD
+Total ET: 41min
 *** Part 1:
 Start: 17:13
 End: 17:44
@@ -52,10 +52,11 @@ g++ 4-solution.cpp -std=c++11 && ./a.out
 
 *** Part 2:
 Start: 17:53
-End:
-Duration:
+End: 18:03
+Duration: 10 min
 Run command:
 #+BEGIN_SRC shell
+g++ 4-solution-pt2.cpp -std=c++11 && ./a.out  
 #+END_SRC
 
 
