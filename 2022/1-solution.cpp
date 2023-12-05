@@ -29,7 +29,7 @@ int main() {
   }
 
   std::cout << "Size of elves: " << elves.size() << "\n";
-  // sort evles by calories
+  // sort elves by calories
   sort(elves.begin(), elves.end(), std::greater<int>());
 
   // get the top three and add them up

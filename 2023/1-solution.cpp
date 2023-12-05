@@ -2,29 +2,19 @@
 #include <iostream>
 #include <vector>
 #include <utility>
-#include <assert.h>
+
+#include "utils.h"
 
 int main(){
-  std::string filename = "1-input.txt";
-  std::ifstream input(filename);
-
-  if (!input.is_open()){
-    std::cerr << "Could'nt read file " << filename << "\n";
-    return 1;
-  }
-
-  std::vector<std::string> lines;
-
   int sum = 0;
 
   // iterate over every line in the input
-  for (std::string line;std::getline(input, line);){
+  for (std::string line: read_lines(read_file("1-input.txt"))){
     int first = -1;
     int last = -1;
     // iterate over every character in the line
     for (int i = 0; i < line.length(); i++)
     {
-
       int numb = line[i] - '0'; // get the number of the char
       if (numb > 0 && numb < 10){
         if (first == -1){
@@ -37,10 +27,10 @@ int main(){
     }
     // std::cout << line << " " << first << ", " << last << " \n";
     if (first != -1 && last != -1){
-      sum += first * 10 + last; // convert 2 separte digits like 1,2 to "12"
+      sum += first * 10 + last; // convert 2 separate digits like 1,2 to "12"
     }
   }
 
   // Out should be for test: 142
-  std::cout << "Sum is: " << sum;
+  std::cout << "Sum is: " << sum << endl;
 }

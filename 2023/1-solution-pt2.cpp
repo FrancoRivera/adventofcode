@@ -37,13 +37,6 @@ std::vector<int> find_in_string(std::string *line){
   }
   vector.push_back(first);
   vector.push_back(last);
-      // vector.push_back(i);
-      // auto new_string = line->substr(pos + numbers_in_letters[i].length(), std::string::npos);
-      // auto other = find_in_string(&new_string);
-      // if (other.size() > 0){
-      //   vector.push_back(other[0]);
-      // }
-
   return vector;
 }
 

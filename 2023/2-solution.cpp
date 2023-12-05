@@ -3,24 +3,15 @@
 #include <vector>
 
 #include "2-parse.h"
+#include "utils.h"
 
 using namespace std; 
 
 int main(){
-  // test input, should yield 281
-  // string filename = "2-input-test.txt"; // test
-  string filename = "2-input.txt"; // test
-  std::ifstream input(filename);
-
-  if (!input.is_open()){
-    std::cerr << "Couldn't read file " << filename << "\n";
-    return 1;
-  }
-
-  std::vector<std::string> lines;
   vector<vector<vector<int>>> games;
-
-  for (std::string line;std::getline(input, line);){
+  // string filename = "2-input-test.txt"; // test
+  // string filename = "2-input.txt"; // test
+  for (std::string line: read_lines(read_file("2-input.txt"))){
   // parse each line, create an 2d vector with each of the games,
   // and each of the draws per game
   // each draw has [0..3] amount of cubes, that contain either "red", "green" or "blue" cubes, + a number.
@@ -48,21 +39,21 @@ int main(){
     }
     // if all good, sum the game id to the list. 
     if (valid) {
-      cout << "Game is valid: " << i + 1;
+      // cout << "Game is valid: " << i + 1;
       // sum += game_id;
       sum += i + 1;
     }
     else
     {
-      cout << "Game is invalid: " << i + 1;
+      // cout << "Game is invalid: " << i + 1;
     }
     for (int j = 0; j < game.size(); j++)
     {
       auto draw = game[j];
       // if the draw is invalid break
-      cout << "\t draw " << draw.at(0) << " " << draw.at(1) << " " << draw.at(2);
+      // cout << "\t draw " << draw.at(0) << " " << draw.at(1) << " " << draw.at(2);
     }
-    cout << endl;
+    // cout << endl;
   }
   // output = 8 test
   std::cout << "Valid games: " << sum << endl;
