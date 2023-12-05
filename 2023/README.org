@@ -59,6 +59,26 @@ Run command:
 g++ 4-solution-pt2.cpp -std=c++11 && ./a.out  
 #+END_SRC
 
+** Day 5:
+Total ET: 
+*** Part 1:
+Start: 7:45am
+End: 8:31am
+Duration: 45m26s58
+Run command:
+#+BEGIN_SRC shell
+g++ utils.cpp 5-solution.cpp -std=c++11 && ./a.out 
+#+END_SRC
+
+*** Part 2:
+Start: 10:48
+End: 14:37 (with a lunch break)
+Duration: 2h52
+Run command:
+#+BEGIN_SRC shell
+g++ utils.cpp 5-solution-pt2.cpp -std=c++11 && ./a.out 
+#+END_SRC
+
 
 ** Day Template:
 Total ET: TBD
@@ -77,3 +97,4 @@ Duration:
 Run command:
 #+BEGIN_SRC shell
 #+END_SRC
+
