@@ -80,6 +80,27 @@ g++ utils.cpp 5-solution-pt2.cpp -std=c++11 && ./a.out
 #+END_SRC
 
 
+** Day 6:
+Total ET: 42min
+*** Part 1:
+Start: 9:000
+End: 9:26
+Duration: 26min
+Run command: 
+#+BEGIN_SRC shell
+g++ utils.cpp 6-solution.cpp -std=c++20 -O2 && time ./a.out
+#+END_SRC
+
+*** Part 2:
+Start: 9:26
+End: 9:42
+Duration: 16min
+Run command:
+#+BEGIN_SRC shell
+g++ utils.cpp 6-solution-pt2.cpp -std=c++20 -O2 && time ./a.out
+#+END_SRC
+
+
 ** Day Template:
 Total ET: TBD
 *** Part 1:
