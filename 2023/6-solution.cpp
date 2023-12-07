@@ -72,8 +72,8 @@ int main()
   }
   for (int i = 0; i < c_time_line.size(); i++)
   {
-    auto time = stoi(trim(c_time_line[i]));
-    auto dist = stoi(trim(c_dist_line[i]));
+    auto time = std::stoi(trim(c_time_line[i]));
+    auto dist = std::stoi(trim(c_dist_line[i]));
     races.push_back(race(time, dist));
   }
 
