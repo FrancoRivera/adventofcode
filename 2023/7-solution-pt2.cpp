@@ -22,7 +22,7 @@ struct hand{
 
     int strength(){
       // strength order: 
-      int strength_order[13] = {'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2'};
+      int strength_order[13] = {'A', 'K', 'Q', 'T', '9', '8', '7', '6', '5', '4', '3', '2', 'J'};
 
       // first, sort the cards by letter
 
@@ -34,12 +34,15 @@ struct hand{
       int count = 0;
       int max = 0;
       std::vector<std::string> groups = std::vector<std::string>();
+      int jcount = 0;
       for(int i = 0; i < 5; i++){
+        if (cards[i] == 'J')
+        {
+          jcount++;
+        }
         if (cards[i] == current){
           count++;
         } else{
-          if (count == 1){
-          }
           if (count == 2){
             groups.push_back("pair");
           }
@@ -83,6 +86,11 @@ struct hand{
 
       // high card
       if(groups.size() == 0){
+        if (jcount == 1) return 20; // pair at min
+        // if (jcount == 2) return 20; // pair at min
+        // if (jcount == 3) return 20; // pair at min
+        // if (jcount == 4) return 20; // pair at min
+        // if (jcount == 5) return 20; // pair at min
         // it is nothing, maybe high card
         for (int j = 0; j < 13; j++)
         {
@@ -91,16 +99,41 @@ struct hand{
             max = j;
           };
         }
+        // if its J then at minimum theres a pair
         return 13-max;
       }
       if (groups.size() == 1){
         if (groups[0] == "pair"){
+          if(jcount == 1){
+            return 2000; // tok
+          }
+          if(jcount == 2){ // apir of Js
+            return 2000; // tok
+          }
+          if(jcount == 3){
+            return 20000000; // five of a kind
+          }
           return 20;
         }
         if (groups[0] == "tok"){
+          if(jcount == 1){
+            return 2000000; // poker
+          }
+          if(jcount == 2){
+            return 20000000; // five of a kind
+          }
+          if(jcount == 3){ // its a tok of Js
+            return 2000000; // at worst its a poker
+          }
           return 2000;
         }
         if (groups[0] == "poker"){
+          if(jcount == 1){
+            return 20000000; // five of a kind
+          }
+          if (jcount == 4){ // its a poker of Js
+            return 20000000; // five of a kind
+          }
           return 2000000;
         }
         if (groups[0] == "five"){
@@ -113,12 +146,20 @@ struct hand{
           (groups[0] == "tok" && groups[1] == "pair")
         ){
           // full house
-          return 200000;
+          if (jcount == 3 || jcount == 2){ return 20000000;} // five of a kind
+          return 200000; // full house
         }
         if (groups[0] == "pair" && groups[1] == "pair"){
+          if(jcount == 1){
+            return 200000; // full house
+          }
+          if(jcount == 2){
+            return 2000000; // poker
+          }
           return 200;
         }
       }
+      exit(1);
     }
 };
 
@@ -162,7 +203,7 @@ int main()
         if (a.cards[i] != b.cards[i]){
           // check which is higher
           // strength order:
-          int strength_order[13] = {'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2'};
+          int strength_order[13] = {'A', 'K', 'Q', 'T', '9', '8', '7', '6', '5', '4', '3', '2', 'J'};
           int maxA = 0;
           for (int j = 0; j < 13; j++)
           {
@@ -195,6 +236,6 @@ int main()
     << hands[i].bet << " \t" << hands[i].strength() << std::endl;
     prod += hands[i].bet * (i + 1);
   }
-  // Out should be for test: 6440
+  // Out should be for test: 5905
   std::cout << "Product of ways is: " << prod << std::endl;
 }

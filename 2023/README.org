@@ -101,6 +101,26 @@ g++ utils.cpp 6-solution-pt2.cpp -std=c++20 -O2 && time ./a.out
 #+END_SRC
 
 
+** Day 7:
+Total ET: 1h44m
+*** Part 1:
+Start: 15:20
+End: 16:30
+Duration: 1h09m
+Run command:
+#+BEGIN_SRC shell
+g++ utils.cpp 7-solution.cpp -std=c++20 -O2 && time ./a.out
+#+END_SRC
+
+*** Part 2:
+Start: 16:30
+End: 17:05
+Duration: 35min
+Run command:
+#+BEGIN_SRC shell
+g++ utils.cpp 7-solution-pt2.cpp -std=c++20 -O2 && time ./a.out
+#+END_SRC
+
 ** Day Template:
 Total ET: TBD
 *** Part 1:
@@ -119,3 +139,8 @@ Run command:
 #+BEGIN_SRC shell
 #+END_SRC
 
+
+
+
+Modern c++
+https://medium.com/@simontoth/daily-bit-e-of-c-advent-of-code-day-5-7b8215e7c651
