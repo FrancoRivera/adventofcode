@@ -1,7 +1,6 @@
-#include <vector>
-#include <iostream>
 #include <fstream>
-
+#include <iostream>
+#include <vector>
 
 // read files into a ifstream, tip: use it in conj with read_lines
 std::ifstream read_file(std::string filename);
@@ -14,4 +13,7 @@ std::vector<std::string> read_lines(std::ifstream input);
 std::vector<std::string> split(const std::string &s, char delim);
 
 // trim any unwanted characters, by default, it is empty spaces
-std::string& trim(std::string& s, const char* t = " \t\n\r\f\v");
+std::string &trim(std::string &s, const char *t = " \t\n\r\f\v");
+
+// join a vector into a string
+std::string join(const std::vector<int> &s, char delim);
