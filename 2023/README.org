@@ -121,6 +121,23 @@ Run command:
 g++ utils.cpp 8-solution-pt2.cpp -O2 && time ./a.out
 #+END_SRC
 
+** Day 8:
+Total ET: TBD
+*** Part 1:
+Start: 09:15
+End:
+Duration:
+Run command:
+#+BEGIN_SRC shell
+#+END_SRC
+
+*** Part 2:
+Start:
+End:
+Duration:
+Run command:
+#+BEGIN_SRC shell
+#+END_SRC
 
 ** Day Template:
 Total ET: TBD
