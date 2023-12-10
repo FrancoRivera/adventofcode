@@ -100,6 +100,26 @@ Run command:
 g++ utils.cpp 6-solution-pt2.cpp -std=c++20 -O2 && time ./a.out
 #+END_SRC
 
+** Day 7:
+Total ET: TBD
+*** Part 1:
+Start: ~10:45am
+End: 08:00am (next day)
+Duration: ~1D
+I forgot that we needed to start at node AAA
+Run command:
+#+BEGIN_SRC shell
+g++ utils.cpp 8-solution.cpp -O2 && time ./a.out
+#+END_SRC
+
+*** Part 2:
+Start:
+End:
+Duration:
+Run command:
+#+BEGIN_SRC shell
+#+END_SRC
+
 
 ** Day Template:
 Total ET: TBD
