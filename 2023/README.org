@@ -100,7 +100,7 @@ Run command:
 g++ utils.cpp 6-solution-pt2.cpp -std=c++20 -O2 && time ./a.out
 #+END_SRC
 
-** Day 7:
+** Day 8:
 Total ET: 1D+72min
 *** Part 1:
 Start: ~10:45am
@@ -121,22 +121,24 @@ Run command:
 g++ utils.cpp 8-solution-pt2.cpp -O2 && time ./a.out
 #+END_SRC
 
-** Day 8:
-Total ET: TBD
+** Day 9:
+Total ET: 29min
 *** Part 1:
 Start: 09:15
-End:
-Duration:
+End: 9:34
+Duration: 20min
 Run command:
 #+BEGIN_SRC shell
+g++ utils.cpp 9-solution.cpp -O2 && time ./a.out
 #+END_SRC
 
 *** Part 2:
-Start:
-End:
-Duration:
+Start: 9:35
+End: 9:44
+Duration: 9min
 Run command:
 #+BEGIN_SRC shell
+g++ utils.cpp 9-solution.cpp -O2 && time ./a.out
 #+END_SRC
 
 ** Day Template:
