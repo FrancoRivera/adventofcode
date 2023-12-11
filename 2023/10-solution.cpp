@@ -185,6 +185,113 @@ int part_1_bfs() {
   return MAX_BFS(start_x, start_y, pipe_matrix);
 }
 
+// Part 2
+//
+int part_2() {
+  // find out what nodes form the loop
+  //
+  // read the file
+  std::vector<std::vector<pipe *>> pipe_matrix =
+      std::vector<std::vector<pipe *>>();
+
+  pipe *start;
+
+  for (auto line : read_lines(read_file("10-input.txt"))) {
+    // for each of the tokens, first create an array of pipes wxh
+    std::vector<pipe *> aux;
+    for (char c : line) {
+      auto p = new pipe(c);
+      aux.push_back(p);
+      if (c == 'S') {
+        start = p;
+      }
+    }
+    pipe_matrix.push_back(aux);
+  }
+
+  std::cout << " Done reading" << std::endl;
+
+  int start_x, start_y;
+  for (int i = 0; i < pipe_matrix.size(); i++) {
+    auto row = pipe_matrix[i];
+    for (int j = 0; j < row.size(); j++) {
+      auto pipe = pipe_matrix[i][j];
+      pipe->y = i;
+      pipe->x = j;
+      if (pipe->c == 'S') {
+        start_x = j;
+        start_y = i;
+      }
+    }
+  }
+  std::cout << "Starting at " << start_x << ", " << start_y << std::endl;
+  std::cout << "Done parsing, starting BFS" << std::endl;
+
+  // RUN BFS
+  // do BFS get the last node (min dist)
+  MAX_BFS(start_x, start_y, pipe_matrix);
+
+  pipe *last;
+  for (int i = 0; i < pipe_matrix.size(); i++) {
+    for (int j = 0; j < pipe_matrix[i].size(); j++) {
+      if (pipe_matrix[i][j]->dist > last->dist) {
+        last = pipe_matrix[i][j];
+      }
+    }
+  }
+  // after that, check for neighboring nodes to find out where is the
+  // continuation
+  std::pair<int, int> north = std::pair(-1, 0);
+  std::pair<int, int> south = std::pair(1, 0);
+  std::pair<int, int> east = std::pair(0, 1);
+  std::pair<int, int> west = std::pair(0, -1);
+
+  std::vector<std::pair<int, int>> pairs = {north, south, east, west};
+  std::string order[4] = {"north", "south", "east", "west"};
+
+  std::vector<pipe *> loop;
+  int conn_count = 0;
+  for (int i = 0; i < 4; i++) {
+    auto p = pairs[i];
+    if (last->y + p.first >= 0 && last->y + p.first < pipe_matrix.size() &&
+        last->x + p.second >= 0 && last->x + p.second < pipe_matrix[0].size()) {
+      auto v = pipe_matrix[last->y + p.first][last->x + p.second];
+      std::cout << "Trying " << order[i];
+      if (pipe_compatible(last, v, order[i]) && last->parent != v) {
+        std::cout << "-> ok " << std::endl;
+        loop.push_back(v);
+      } else {
+        // pipe not compatile
+        std::cout << "-> not compat " << last->c << " AND " << v->c
+                  << std::endl;
+      }
+    }
+  }
+
+  // // add all pipes parents until reaching S
+  pipe *curr;
+  while (curr != start) {
+    curr = curr->parent;
+    loop.push_back(curr);
+  }
+  curr = last;
+  while (curr != start) {
+    curr = curr->parent;
+    loop.push_back(curr);
+  }
+
+  // To get if the point is bounded or not
+  // for every point (a,b) in the matrix
+  // find if it crosses even or odd times across the loop, for that
+  // calculate
+  // for i=0..a, j=b how many times it crosses    (to north)
+  // for i=a..max, j=b how many times it crosses  (to south )
+  // for i=a, j=0..b how many times it crosses    (to west)
+  // for i=a, j=b..max how many times it crosses  (to east)
+
+  return 0;
+}
+
 int main() {
 
   compat_map = {
@@ -195,5 +302,5 @@ int main() {
   auto part1 = part_1_bfs();
   // output should be 8 for test
   std::cout << "solution for part 1: " << part1 << std::endl;
-  // part_2();
+  part_2();
 }
