@@ -1,13 +1,13 @@
 #include <algorithm>
 #include <cmath>
 #include <cstdint>
-// #include <map>
-// #include <queue>
 
 #include "utils.h"
 
 std::vector<std::vector<char>> expand_universe(std::vector<std::vector<char>> universe){
     std::vector<std::vector<char>> expanded;
+
+    std::string l;
 
     // expand first rows
     for (int i = 0; i < universe.size(); i++){
@@ -36,12 +36,15 @@ std::vector<std::vector<char>> expand_universe(std::vector<std::vector<char>> un
           }
       }
       if (no_galaxies) {
+          l.push_back('.');
           for (int i = 0; i < expanded.size(); i++) {
               if (expanded_cols.size() <= i) {
                 expanded_cols.push_back(std::vector<char>());
               }
               expanded_cols[i].push_back(expanded[i][j]);
           }
+      } else{
+          l.push_back('#');
       }
       for (int i = 0; i < expanded.size(); i++) {
           if (expanded_cols.size() <= i){
@@ -50,6 +53,10 @@ std::vector<std::vector<char>> expand_universe(std::vector<std::vector<char>> un
           expanded_cols[i].push_back(expanded[i][j]);
       }
     }
+
+    // std::cout << "----------" << std::endl;
+    // std::cout << l << std::endl;
+    // std::cout << "----------" << std::endl;
 
     return expanded_cols;
 }
@@ -103,9 +110,9 @@ int part1(std::string filename){
   }
   //
   return sum;
-
 }
-int part2(std::string filename){
+
+long part2(std::string filename){
   // read the file
   std::vector<std::string> lines = read_lines(read_file(filename));
 
@@ -141,32 +148,40 @@ int part2(std::string filename){
         }
     }
   };
-  auto sum = 0;
-  for (int i = 0; i < galaxies.size(); i++){
-    for (int j = i; j < galaxies.size(); j++) {
-        auto dx = galaxies[j].first - galaxies[i].first;
-        auto dy = galaxies[j].second - galaxies[i].second;
-        sum += abs(dx)+abs(dy);
-    }
-  }
-  std::cout << "sum was " << sum << std::endl;
-
-  sum = 0;
-  const int multiplier = 1;
+  // print_matrix(universe);
+  // print_matrix(expanded_universe);
+  long long sum = 0;
+  // for (int i = 0; i < galaxies.size(); i++){
+  //   for (int j = i; j < galaxies.size(); j++) {
+  //       auto dx = galaxies[j].first - galaxies[i].first;
+  //       auto dy = galaxies[j].second - galaxies[i].second;
+  //       sum += abs(dx)+abs(dy);
+  //   }
+  // }
+  // sum = 0;
+  const long long multiplier = 1000*1000;
   // check by how much the galaxies expanded when expansion = 2
   // measure the distance between each galaxy
   // this is the manhattan distance, only need to take end and start
+  // std::cout << galaxies.size() << std::endl;
   for (int i = 0; i < galaxies.size(); i++){
     auto a = galaxies[i];
-    for (int j = i+1; j < galaxies.size(); j++) {
+    auto a_prime = expanded_galaxies[i];
+    for (int j = i; j < galaxies.size(); j++) {
         auto b = galaxies[j];
         auto b_prime = expanded_galaxies[j];
-        auto exp_x = abs(b_prime.first - b.first)-1; // dista1nce between numbers
-        auto exp_y = abs(b_prime.second - b.second)-1; // distance between numbers
-        // std::cout << exp_x << std::endl;
-        auto dx = abs(b.first - a.first) + (exp_x * (multiplier-1)) + 1;
-        auto dy = abs(b.second - a.second) + (exp_y * (multiplier-1)) + 1;
+
+        long long exp_x = abs(b_prime.first-a_prime.first)-abs(b.first - a.first);
+        long long exp_y = abs(b_prime.second-a_prime.second)-abs(b.second - a.second);
+
+        long long dx = abs(b.first - a.first) + (exp_x * (multiplier-1));
+        long long dy = abs(b.second - a.second) + (exp_y * (multiplier-1));
+
         sum += abs(dx)+abs(dy);
+        if (sum == 0){
+            // std::cout << a_prime.first << ", " << a_prime.second << " - ";
+            // std::cout << b_prime.first << ", " << b_prime.second;
+        }
     }
   }
 
@@ -175,7 +190,7 @@ int part2(std::string filename){
 
 int main(){
     // test output should be 374
-    std::cout << "Sum of distances is: " << part1("11-input-test.txt") << std::endl;
-    std::cout << "Sum of distances is: " << part2("11-input-test.txt") << std::endl;
+    std::cout << "Part 1: Sum of distances is: " << part1("11-input-test.txt") << std::endl;
+    std::cout << "Part 2: Sum of distances is: " << part2("11-input.txt") << std::endl;
     return 0;
 }
