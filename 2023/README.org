@@ -141,6 +141,26 @@ Run command:
 g++ utils.cpp 9-solution.cpp -O2 && time ./a.out
 #+END_SRC
 
+** Day 10:
+Total ET: TBD
+*** Part 1:
+Start: 10:00
+End:
+Duration: ~ 5 hours so far
+Issue: Algo works on both tests but fails on real input
+Run command:
+#+BEGIN_SRC shell
+#+END_SRC
+
+*** Part 2:
+Start:
+End:
+Duration:
+Run command:
+#+BEGIN_SRC shell
+#+END_SRC
+
+
 ** Day Template:
 Total ET: TBD
 *** Part 1:
