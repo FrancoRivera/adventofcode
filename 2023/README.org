@@ -100,6 +100,66 @@ Run command:
 g++ utils.cpp 6-solution-pt2.cpp -std=c++20 -O2 && time ./a.out
 #+END_SRC
 
+** Day 8:
+Total ET: 1D+72min
+*** Part 1:
+Start: ~10:45am
+End: 08:00am (next day)
+Duration: ~1D
+I forgot that we needed to start at node AAA
+Run command:
+#+BEGIN_SRC shell
+g++ utils.cpp 8-solution.cpp -O2 && time ./a.out
+#+END_SRC
+
+*** Part 2:
+Start: 08:00
+End: 09:12
+Duration: 72min
+Run command:
+#+BEGIN_SRC shell
+g++ utils.cpp 8-solution-pt2.cpp -O2 && time ./a.out
+#+END_SRC
+
+** Day 9:
+Total ET: 29min
+*** Part 1:
+Start: 09:15
+End: 9:34
+Duration: 20min
+Run command:
+#+BEGIN_SRC shell
+g++ utils.cpp 9-solution.cpp -O2 && time ./a.out
+#+END_SRC
+
+*** Part 2:
+Start: 9:35
+End: 9:44
+Duration: 9min
+Run command:
+#+BEGIN_SRC shell
+g++ utils.cpp 9-solution.cpp -O2 && time ./a.out
+#+END_SRC
+
+** Day 10:
+Total ET: TBD
+*** Part 1:
+Start: 10:00
+End:
+Duration: ~ 5 hours so far
+Issue: Algo works on both tests but fails on real input
+Run command:
+#+BEGIN_SRC shell
+#+END_SRC
+
+*** Part 2:
+Start:
+End:
+Duration:
+Run command:
+#+BEGIN_SRC shell
+#+END_SRC
+
 
 ** Day 7:
 Total ET: 1h44m
