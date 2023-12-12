@@ -202,6 +202,26 @@ g++ utils.cpp 11-solution.cpp -std=c++11 && time ./a.out
 #+END_SRC
 
 
+** Day 12:
+Total ET: TBD
+*** Part 1:
+Start: 10:28
+End: 11:12
+Duration: 44min
+Run command:
+#+BEGIN_SRC shell
+g++ utils.cpp 12-solution.cpp -std=c++11 && time ./a.out
+#+END_SRC
+
+*** Part 2:
+Start: 11:20
+End: ??
+Duration:
+Run command:
+#+BEGIN_SRC shell
+#+END_SRC
+
+
 ** Day Template:
 Total ET: TBD
 *** Part 1:
